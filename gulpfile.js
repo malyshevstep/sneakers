@@ -40,8 +40,6 @@ let group_media = require('gulp-group-css-media-queries');
 let clean_css = require('gulp-clean-css');
 let rename = require('gulp-rename');
 let uglify = require('gulp-uglify-es').default;
-let imagemin = require('gulp-imagemin');
-let webp = require('gulp-webp');
 let webphtml = require('gulp-webp-html');
 let webpcss = require('gulp-webp-css');
 let svgSprite = require('gulp-svg-sprite');
@@ -111,21 +109,8 @@ function js() {
 
 function images() {
     return src(path.src.img)
-    .pipe(
-        webp({
-            quality: 70,
-        })
-    )
     .pipe(dest(path.build.img))
     .pipe(src(path.src.img))
-        .pipe(
-            imagemin({
-                progressive: true,
-                svgoPlugins: [{ removeViewBox: false}],
-                interlaced: true,
-                optimizationLevel: 3, // От 0 до 7
-            })
-        )
         .pipe(dest(path.build.img))
         .pipe(browsersync.stream())
 }
