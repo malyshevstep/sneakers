@@ -1,42 +1,278 @@
-.page-header{
-    display: flex;
-    flex-direction: row;
-    border:2px solid purple;
-    width:100%;
-    height: 150px;
+body._lock {
+    overflow: hidden; // Класс, который добавляем для того, чтобы контент под открытым меню не прокручивался
 }
-.page-header__wrapper {
-    display: flex;
-    flex-direction: column;
+.wrapper {
+    min-height: 100%;
+}
+.page-header {
+    position: fixed;
+    top:0;
+    left: 0;
     width: 100%;
-    height: 100%;
+    z-index: 10;
+    background-color: mediumpurple;
 }
-.page-header__top {
+.header__container {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-}
-.header-top__logo {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    text-decoration: none;
-    color:black;
-    cursor: pointer;
-    border:2px dashed green;
-    width:120px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+    min-height: 70px;
 }
-.header-menu {
-    border: 2px dotted blue;
+.page-header__logo {
+    border-radius: 50%;
+    background-color: #e2af91;
+    position: relative;
+    z-index: 5;
+    width: 40px;
+    height: 40px;
+}
+.header-menu__icon {
+    display: none;
+}
+.menu-list > li {
+    position: relative;
+    margin:0px 0px 0px 20px;
+}
+.menu-item__link {
+    font-size: 18px;
+    color:#ffffff;
+}
+.menu-item__link:hover {
+    opacity: 0.5;
+}
+.menu-list__sublist {
+    position: absolute;
+    top:100%;
+    right: 0;
+    background-color: #000000;
+    padding: 15px;
+    min-width: 200px;
+}
+.menu-list__sublist > li {
+    margin:0px 0px 10px 0px;
+}
+.menu-list__sublist li:last-child {
+    margin:0;
+}
+.sublist__item__link {
+    color:#ffffff;
+}
+.sublist__item__link:hover {
+    opacity: 0.5;
+}
+.menu-item__arrow {
+    display: none;
 }
 
-.menu-item__link {
-    color:black;
-    cursor: pointer;
+/* ---------------------------------- */
+body._pc .menu-list > li:hover .menu-list__sublist  {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0px,0px);
+    pointer-events: all;
 }
-.header-bottom {
-    border:1px solid black;
-    margin:2px;
-    background-color: lightpink;
-    height: 100%;
+body._touch .menu-list > li {
+    display: flex;
+    align-items: center;
+}
+body._touch .menu-item__link {
+    flex: 0 1 auto;
+}
+body._touch .menu-item__arrow {
+    display: block;
+    width: 0;
+    height: 0;
+    margin:0px 0px 0px 5px;
+    transition: transform 0.3s ease 0s;
+    border-left:5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid #ffffff;
+}
+
+
+body._touch .menu-list > li._active .menu-list__sublist  {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0px,0px);
+    pointer-events: all;
+}
+body._touch .menu-list > li._active .menu-item__arrow {
+    transform: rotate(-180deg);
+}
+
+/* ---------------------------------- */
+
+@media(min-width:767px) {
+    .menu-list {
+        display: flex;
+        align-items: center;
+    }
+    .menu-list > li {
+        padding:10px 0px;
+    }
+    .menu-list__sublist {
+        transform: translate(0px, 10%);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: all 0.4s ease 0s;
+    }
+}
+@media(max-width:767px) {
+    .header-menu__icon {
+        z-index: 5;
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 18px;
+        cursor: pointer;
+    }
+    .header-menu__icon span,
+    .header-menu__icon::before,
+    .header-menu__icon::after {
+        position: absolute;
+        left:0;
+        height: 10%;
+        width: 100%;
+        transition: all 0.3s ease 0s;
+        background-color: #e2af91;
+    }
+    .header-menu__icon::before,
+    .header-menu__icon::after {
+        content: '';
+    }
+    .header-menu__icon::before {
+        top:0;
+    }
+    .header-menu__icon::after {
+        bottom: 0;
+    }
+    .header-menu__icon span {
+        top:50%;
+        transform: scale(1) translate(0px, -50%);
+    }
+    .header-menu__icon._active span {
+        transform: scale(0) translate(0px, -50%);
+    }
+    .header-menu__icon._active::before {
+        top:50%;
+        transform: rotate(-45deg) translate(0px, -50%);
+    }
+    .header-menu__icon._active::after {
+        bottom:50%;
+        transform: rotate(45deg) translate(0px, 50%);
+    }
+    .menu-body {
+        position: fixed;
+        top:0;
+        left: -140%;
+        width: 93%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding:100px 30px 30px 30px;
+        transition: left 0.3s ease 0s;
+        overflow: auto;
+    }
+    .menu-body._active {
+        left:0px;
+    }
+    .menu-body::before {
+        content: '';
+        position: fixed;
+        width: 100%;
+        top:0;
+        left:0;
+        height: 70px;
+        background-color: #ffffff;
+        z-index: 2;
+    }
+    .menu-list > li {
+        flex-wrap: wrap;
+        margin:0px 0px 30px  0px;
+    }
+    .menu-list > li:last-child {
+        margin-bottom: 0px;
+    }
+    .menu-list > li._active .menu-list__sublist {
+        display: block;
+    }
+    .menu-item__link {
+        font-size: 24px;
+    }
+    body._touch .menu-item .menu-item__link--arrow {
+        flex:0 1 auto;
+    }
+    .menu-list__sublist {
+        position: relative;
+        flex:1 1 100%;
+        margin:20px 0px 0px 0px;
+        display: none;
+        margin-right: 40px;
+    }
+    .sublist__item__link {
+        font-size: 18px;
+    }
+    .menu-item__arrow {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ------- Разметка блоков ниже шапки ------- //
+.page-main {
+    padding:70px 0px 10px 0px;
+}
+.page-main__section {
+    padding:30px;
+    max-width: 1200px;
+    margin:0px auto;
+}
+.page-main__section--1 {
+    background-color: #794f45;
+}
+.page-main__section--2 {
+    background-color: #77608d;
+}
+.page-main__section--3 {
+    background-color: #7a956b;
+}
+.main-section__heading {
+    font-size: 40px;
+    margin:0px 0px 20px 0px;
+}
+.main-section__subheading {
+    font-size: 30px;
+    margin:0px 0px 20px 0px;
+}
+.main-section__text {
+    font-size: 16px;
+    line-height: 150%;
+}
+.main-section__text p {
+    margin:0px 0px 20px 0px;
 }

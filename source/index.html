@@ -3,52 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sneaker maniacs</title>
+    <title>Sneaker Junkie</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="wrapper">
     <header class="page-header page-header--index">
-        <img src="img/mccain.png" alt="" width="480" height="100">
-        <div class="page-header__wrapper">
-            <h1 class="visually-hidden">Sneaker maniacs shop!</h1>
-            <div class="page-header__top header-top">
-                <!-- Тут будет лого сайта с менюшкой-->
-                <a class="header-top__logo" href="sneakermaniacs.ru">Лого</a>
-                <h2 class="header-top__heading"> Snkrs</h2>
-                <ul class="header-top__menu header-menu">
-
-                    <li class="header-menu__item menu-item">
-                        <a class="menu-item__link" href="">
-                            Первая ссылка
-                        </a>
-                    </li>
-                    <li class="header-menu__item menu-item">
-                        <a class="menu-item__link" href="">
-                            Вторая ссылка
-                        </a>
-                    </li>
-                    <li class="header-menu__item menu-item">
-                        <a class="menu-item__link" href="">
-                            Третья ссылка
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="page-header__bottom header-bottom">
-                <p> Тут будет слайдер</p>
+        <div class="header__container">
+            <a class="page-header__logo header-logo" href="#"></a>
+            <div class="page-header__menu header-menu">
+                <div class="header-menu__icon">
+                    <span></span>
+                </div>
+                <nav class="header-menu__body menu-body">
+                    <ul class="menu-body__list menu-list">
+                        <li class="menu-list__item menu-item">
+                            <a data-goto=".page-main__section--1" class="menu-item__link" href="#">Раздел №1</a>
+                        </li>
+                        <li class="menu-list__item menu-item">
+                            <a data-goto=".page-main__section--2" class="menu-item__link" href="#">Раздел №2</a>
+                        </li>
+                        <li class="menu-list__item menu-item">
+                            <a data-goto=".page-main__section--3" class="menu-item__link" href="#">Раздел №3</a>
+                        </li>
+                        <li class="menu-list__item menu-item">
+                            <a class="menu-item__link menu-item__link--arrow" href="#">Страница 1</a>
+                            <span class="menu-item__arrow"></span>
+                            <ul class="menu-list__sublist menu-sublist">
+                                <li class="menu-sublist__item sublist__item">
+                                    <a class="sublist__item__link" href="#">Подраздел страницы 1</a>
+                                </li>
+                                <li class="menu-sublist__item sublist__item">
+                                    <a class="sublist__item__link" href="#">Подраздел страницы 2</a>
+                                </li>
+                                <li class="menu-sublist__item sublist__item">
+                                    <a class="sublist__item__link" href="#">Подраздел страницы 3</a>
+                                </li>
+                            </ul>
+                            <li class="menu-list__item menu-item">
+                                <a class="menu-item__link" href="#">Страница 2</a>
+                            </li>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
-    </header>    
+        <!--
+            background-color: #F9EEE3;
+            background-color: #C47344;
+        -->
+    </header>
 
-
-
-
-
-
-
-
-
-    <script src="js/script.min.js"></script>
+    <main class="page-main">
+        <section class="page-main__section main-section page-main__section--1">
+            <h1 class="main-section__heading">Ну тут якобы статья</h1>
+            <div class="main-section__text">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, temporibus fuga labore architecto voluptatum similique,
+                repellat unde eius itaque tempora eum, corporis magni ut consectetur. Reiciendis cumque id quas deleniti!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, temporibus fuga labore architecto voluptatum similique,
+                repellat unde eius itaque tempora eum, corporis magni ut consectetur. Reiciendis cumque id quas deleniti!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, temporibus fuga labore architecto voluptatum similique,
+                repellat unde eius itaque tempora eum, corporis magni ut consectetur. Reiciendis cumque id quas deleniti!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, temporibus fuga labore architecto voluptatum similique,
+                repellat unde eius itaque tempora eum, corporis magni ut consectetur. Reiciendis cumque id quas deleniti!</p>
+            </div>
+        </section>
+        <section class="page-main__section main-section page-main__section--2">
+            <h2 class="main-section__subheading">Тут что-то по типу статьи тоже</h2>
+            <div class="main-section__text">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, temporibus fuga labore architecto voluptatum similique,
+                repellat unde eius itaque tempora eum, corporis magni ut consectetur. Reiciendis cumque id quas deleniti!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, temporibus fuga labore architecto voluptatum similique,
+                repellat unde eius itaque tempora eum, corporis magni ut consectetur. Reiciendis cumque id quas deleniti!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, temporibus fuga labore architecto voluptatum similique,
+                repellat unde eius itaque tempora eum, corporis magni ut consectetur. Reiciendis cumque id quas deleniti!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, temporibus fuga labore architecto voluptatum similique,
+                repellat unde eius itaque tempora eum, corporis magni ut consectetur. Reiciendis cumque id quas deleniti!</p>
+            </div>
+        </section>
+        <section class="page-main__section main-section page-main__section--3">
+            <h2 class="main-section__subheading">Ну и тут тоже что-то похожее на статью</h2>
+            <div class="main-section__text">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, temporibus fuga labore architecto voluptatum similique,
+                repellat unde eius itaque tempora eum, corporis magni ut consectetur. Reiciendis cumque id quas deleniti!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, temporibus fuga labore architecto voluptatum similique,
+                repellat unde eius itaque tempora eum, corporis magni ut consectetur. Reiciendis cumque id quas deleniti!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, temporibus fuga labore architecto voluptatum similique,
+                repellat unde eius itaque tempora eum, corporis magni ut consectetur. Reiciendis cumque id quas deleniti!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, temporibus fuga labore architecto voluptatum similique,
+                repellat unde eius itaque tempora eum, corporis magni ut consectetur. Reiciendis cumque id quas deleniti!</p>
+            </div>
+        </section>
+    </main>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
